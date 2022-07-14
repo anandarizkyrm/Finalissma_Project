@@ -123,7 +123,10 @@ exports.Login = async (req: any, res: any) => {
       });
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET,{
+      expiresIn:process.env.JWT_EXPIRE,
+    }
+    );
 
     res.status(200).send({
       status: 200,
@@ -387,7 +390,10 @@ exports.AdminLogin = async (req : any , res : any )=>{
       });
     }
 
-    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET);
+    const token = jwt.sign({ id: user.id }, process.env.JWT_SECRET,{
+      expiresIn: process.env.JWT_EXPIRE,
+    }
+  );
 
     res.status(200).send({
       status: 200,

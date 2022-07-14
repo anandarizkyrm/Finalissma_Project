@@ -10,7 +10,6 @@ import Classroom from "./components/Classroom/Classroom";
 import AllTask from "./components/Task/AllTask";
 import Profile from "./components/Profile/Profile";
 import StudentsInClassroom from "./components/Students/StudentsInClassroom";
-import Report from "./components/report/Report";
 import AnswerTask from "./components/Task/AnswerTask";
 import Scores from "./components/Scores/Scores";
 import moment from "moment";
@@ -97,16 +96,7 @@ function App() {
             <ProtectedRoute redirectTo="/login" Component={<Profile />} />
           }
         />
-        <Route
-          path="/report"
-          element={
-            <ProtectedRoute
-              allowRole={"guru"}
-              redirectTo="/login"
-              Component={<Report />}
-            />
-          }
-        />
+
         <Route
           path="classroom/:class_id/answertask/:id"
           element={

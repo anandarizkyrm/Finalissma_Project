@@ -1,8 +1,12 @@
-import React from "react";
 import moment from "moment";
 import Header_Report from "./Header_Report";
 
-function StudentsInClassroomPDF({ data }: any) {
+interface Iprops {
+  data: any;
+  classroom: any;
+}
+
+function StudentsInClassroomPDF({ data, classroom }: Iprops) {
   return (
     <div className="px-7 py-2">
       <Header_Report />
@@ -19,7 +23,11 @@ function StudentsInClassroomPDF({ data }: any) {
                 <td>: {data?.data[0]?.Classroom.name.toUpperCase()}</td>
               </tr>
               <tr>
-                <th>Description</th>
+                <th className="text-left">Guru Kelas</th>
+                <td>: {classroom?.data.User.name.toUpperCase()}</td>
+              </tr>
+              <tr>
+                <th>Deskripsi Kelas</th>
                 <td>: {data?.data[0]?.Classroom.description}</td>
               </tr>
             </tbody>
@@ -30,7 +38,7 @@ function StudentsInClassroomPDF({ data }: any) {
         <table className="border border-black table-fixed">
           <thead>
             <tr>
-              <th className="border border-black w-32">No.</th>
+              <th className="border border-black">No.</th>
               <th className="border border-black w-32">Nama Siswa</th>
               <th className="border border-black">Jenis Kelamin</th>
               <th className="border border-black">Tempat Lahir</th>

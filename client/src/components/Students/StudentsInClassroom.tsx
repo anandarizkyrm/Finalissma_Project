@@ -79,7 +79,7 @@ function StudentsInClassroom() {
             <Spin className="w-full text-center" size="large" />
           </div>
         )}
-        {students && students.data && students.data.length < 1 ? (
+        {students && students.data.length < 1 ? (
           <div
             style={{ minHeight: "50vh" }}
             className=" flex items-center justify-center mt-5"
@@ -92,7 +92,7 @@ function StudentsInClassroom() {
       </div>
       <div className="hidden">
         <div ref={componentRef}>
-          <StudentsInClassroomPDF data={students} />
+          <StudentsInClassroomPDF data={students} classroom={classroom} />
         </div>
       </div>
     </div>
